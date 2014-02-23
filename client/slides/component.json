@@ -1,0 +1,10 @@
+{
+  "name": "slides",
+  "description": "slides behavior",
+  "dependencies": {
+  },
+  "development": {},
+  "scripts": [
+    "index.js"
+  ]
+}

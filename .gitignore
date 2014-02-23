@@ -1,2 +1,3 @@
+components
 node_modules
-test/hello/keynote
+/test/hello/keynote

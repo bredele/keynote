@@ -1,0 +1,9 @@
+{
+  "name": "keynote",
+  "paths": [
+    "client"
+  ],
+  "local": [
+    "slides"
+  ]
+}
