@@ -48,6 +48,7 @@
 html {
   font: 100%/1.5 "Open Sans", sans-serif;
   font-weight: 400;
+  color:#34495e;
 }
 
 body {
@@ -79,6 +80,8 @@ body {
 }
 
 .kn-footer {
+	color:#bdc3c7;
+	text-align: center;
 	position:absolute;
 	height:42px;
 	bottom:0;
@@ -89,7 +92,6 @@ body {
 .kn-icon {
 	font-size: 1.3em;
 	padding:0 20px;
-	color:#ecf0f1;
 /*  font-size: 1.3em;
 	line-height: 42px;*/
 }

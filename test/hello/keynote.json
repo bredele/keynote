@@ -1,5 +1,6 @@
 {
 	"title" : "Hello World",
 	"name" : "test",
-	"author" : "Olivier Wietrich"
+	"author" : "Olivier Wietrich",
+	"link" : "http://github.com/bredele"
 }
