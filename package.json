@@ -1,6 +1,6 @@
 {
   "name": "keynote",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Presentations made easy",
   "main": "index.js",
   "scripts": {
@@ -21,6 +21,7 @@
     "url": "https://github.com/bredele/keynote/issues"
   },
   "dependencies": {
-    "commander": "~2.1.0"
+    "commander": "~2.1.0",
+    "marked": "~0.3.1"
   }
 }
