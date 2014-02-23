@@ -7,5 +7,10 @@
   "development": {},
   "scripts": [
     "index.js"
+  ],
+  "styles" : [
+  	"reset.css",
+    "font.css",
+    "slides.css"
   ]
 }

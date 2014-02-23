@@ -272,9 +272,9 @@ var Stack = require('stack');
 
 //init
 
-stack = new Stack(document.body);
+stack = new Stack(document.querySelector('.kn-slides'));
 var div = document.createElement('div');
-div.insertAdjacentHTML('beforeend', document.getElementById('keynote-template').innerHTML);
+div.insertAdjacentHTML('beforeend', document.getElementById('kn-template').innerHTML);
 
 var nodes = div.children;
 console.log(nodes);
@@ -294,6 +294,12 @@ show();
 
 window.addEventListener('hashchange', function() {
 	show();
+});
+
+//crap
+
+document.querySelector('.icon-comment').addEventListener('click', function() {
+	document.querySelector('.kn-main').classList.toggle('slide');
 });
 });
 require.alias("slides/index.js", "keynote/deps/slides/index.js");

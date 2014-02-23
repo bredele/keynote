@@ -6,7 +6,19 @@
 	<link rel="stylesheet" href="/css/keynote.css">
 </head>
 <body>
-	<script id="keynote-template" type="text/template">
+	<div class="kn-sidebar"></div>
+	<main class="kn-main">
+		<div class="kn-slides"></div>
+		<footer class="kn-footer">
+			<div class="kn-icon left icon-comment"></div>
+			<div class="kn-icon right icon-arrow-down"></div>
+		</footer>
+	</main>
+	<script id="kn-template" type="text/template">
+		<section class="slide" data-slide="0">
+			<h1>{{ name }}</h1>
+			<p>{{ author }}</p>
+		</section>
 	  {{ keynote }}
 	</script>
 	<script src="/js/keynote.js"></script>

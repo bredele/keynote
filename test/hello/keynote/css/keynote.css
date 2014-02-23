@@ -1,0 +1,100 @@
+
+*, *:before, *:after {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.left {
+	float:left;
+}
+
+.right {
+	float:right;
+}
+@font-face {
+	font-family: 'keynote';
+	src:url('/assets/fonts/keynote.eot?n2yq91');
+	src:url('/assets/fonts/keynote.eot?#iefixn2yq91') format('embedded-opentype'),
+		url('/assets/fonts/keynote.woff?n2yq91') format('woff'),
+		url('/assets/fonts/keynote.ttf?n2yq91') format('truetype'),
+		url('/assets/fonts/keynote.svg?n2yq91#keynote') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+	font-family: 'keynote';
+	speak: none;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1;
+
+	/* Better Font Rendering =========== */
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+.icon-comment:before {
+	content: "\e600";
+}
+.icon-arrow-down:before {
+	content: "\e601";
+}
+
+
+html {
+  font: 100%/1.5 "Open Sans", sans-serif;
+  font-weight: 400;
+}
+
+body {
+  margin: 0;
+}
+
+
+.kn-sidebar {
+	background: #2e2b2c;
+	position:absolute;
+	top:0; left:0;
+	width:400px;
+	height:100%;
+}
+
+
+.kn-main {
+	padding:20px;
+	background: white;
+	position:absolute;
+	top:0; left:0;
+	height:100%;
+	width:100%;
+	min-height: 400px;
+}
+
+.kn-main.slide {
+	-webkit-transform:translate3d(400px, 0px, 0);
+}
+
+.kn-footer {
+	position:absolute;
+	height:42px;
+	bottom:0;
+	left:0;
+	width:100%;
+}
+
+.kn-icon {
+	font-size: 1.3em;
+	padding:0 20px;
+	color:#ecf0f1;
+/*  font-size: 1.3em;
+	line-height: 42px;*/
+}
+
+.kn-icon:hover {
+	cursor:pointer;
+	color:#bdc3c7;
+}
