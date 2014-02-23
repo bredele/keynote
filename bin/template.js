@@ -7,9 +7,10 @@
  * @return {String}      
  */
 
-function supplant(text, data){
+module.exports = function supplant(text, data){
   return text.replace(/\{\{([^}]+)\}\}/g, function(_, expr) {
     return data[expr.trim()] || '';
   });
 };
+
 

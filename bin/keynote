@@ -1,8 +1,15 @@
 #!/usr/bin/env node
 
-var resolve = require('path').resolve,
+var fs = require('fs'),
+		read = fs.readFileSync,
+		write = fs.writeFile,
+		resolve = require('path').resolve,
 		program = require('commander'),
-		walk = require('./walk');
+		ncp = require('ncp'),
+		mkdir = require('mkdirp').sync,
+		walk = require('./walk'),
+		template = require('./template'),
+		serve = require('./serve');
 
 
 /**
@@ -13,6 +20,7 @@ program
   .version(require('../package.json').version)
   .option('-o, --output', 'create keynote directory with output')  
   .option('-w, --watch', 'watch the input file for changes')
+
 
 /**
  * Examples.
@@ -30,17 +38,30 @@ program.on('--help', function () {
 program.parse(process.argv);
 
 
-// // path
-// var path = resolve(program.args.shift() || '.');
+// path
+
 var path = resolve('.');
-
-/**
- * Settings.
- */
-
-var input = program.args[0] ? resolve(program.args[0]) : null;
-var output = program.args[1] ? resolve(program.args[1]) : null;
+var output = program.output || './keynote';
 
 
-console.log(walk(path));
+//create output directory
 
+mkdir(output);
+
+
+//update output directory
+
+ncp(__dirname + '/basic', output, function(err) {
+	if(err) throw err;
+	var file = read(output + '/index.html', {
+		encoding: 'utf-8'
+	});
+	write(output + '/index.html', template(file, {
+		title: 'keynote',
+		keynote: walk(path)
+	}), function() {
+		if(err) throw err;
+	});
+});
+
+serve(output);
