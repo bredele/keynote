@@ -1,21 +1,19 @@
 #!/usr/bin/env node
 
 var Builder = require('component-builder'),
-		resolve = require('path').resolve,
-    fs = require('fs'),
-    write = fs.writeFileSync;
+		minify = require('minify'),
+    write = require('fs').writeFileSync;
 
 
 /**
  * Component builder.
  */
 
-console.log(resolve(__dirname, '..'));
-var builder = new Builder(resolve(__dirname, '..'));
+var builder = new Builder('.');
 builder.build(function(err, res){
   if (err) throw err;
   var js = res.require + res.js;
-  console.log(res.js);
-  write('bin/basic/js/keynote.js', js);
-  //write('public/skeleton.css', res.css);
+  js += ';require("slides")';
+  write('bin/basic/js/keynote.js', js); //minify.js(js)
+  write('bin/basic/css/keynote.css', res.css);
 });

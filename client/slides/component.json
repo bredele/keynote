@@ -2,6 +2,7 @@
   "name": "slides",
   "description": "slides behavior",
   "dependencies": {
+  	"bredele/stack" : "*"
   },
   "development": {},
   "scripts": [

@@ -15,7 +15,7 @@ module.exports = function(dir) {
 
 	readdir(dir).forEach(function(name, idx) {
 		if(re.test(name)) {
-			var file = read(name, {
+			var file = read(dir + '/' + name, {
 				encoding: 'utf-8'
 			});
 			slides += '<section class="slide" data-slide="' + (idx + 1) + ':' + name + '">' + marked(file) + '</section>';
