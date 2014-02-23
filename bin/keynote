@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 
-var program = require('commander'),
+var resolve = require('path').resolve,
+		program = require('commander'),
 		walk = require('./walk');
 
 
@@ -10,9 +11,8 @@ var program = require('commander'),
 
 program
   .version(require('../package.json').version)
-  .usage('[<input>] [<output>]')
+  .option('-o, --output', 'create keynote directory with output')  
   .option('-w, --watch', 'watch the input file for changes')
-
 
 /**
  * Examples.
@@ -30,11 +30,17 @@ program.on('--help', function () {
 program.parse(process.argv);
 
 
+// // path
+// var path = resolve(program.args.shift() || '.');
+var path = resolve('.');
+
 /**
  * Settings.
  */
 
-// var input = program.args[0] ? resolve(program.args[0]) : null;
-// var output = program.args[1] ? resolve(program.args[1]) : null;
+var input = program.args[0] ? resolve(program.args[0]) : null;
+var output = program.args[1] ? resolve(program.args[1]) : null;
 
-walk();
+
+console.log(walk(path));
+

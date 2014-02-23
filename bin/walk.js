@@ -1,21 +1,25 @@
 var fs = require('fs'),
+		readdir = fs.readdirSync,
+		read = fs.readFileSync,
 		marked = require('marked');
 
-module.exports = walk;
+marked.setOptions({
+  highlight: function (code) {
+    return require('highlight.js').highlightAuto(code).value;
+  }
+});
 
-function walk() {
-	var re = /\S\w.md/;
-	fs.readdir(__dirname, function(err, files) {
-		if (err) throw err;
-		files.forEach(function(file) {
-			var idx = 1;
-			if(re.test(file)) {
-				fs.readFile(__dirname + '/' + file, 'utf-8', function(err, text) {
-					if (err) throw err;
-					console.log(marked('<section class="slide" data-slide="' + idx + ':' + file + '">' + text + '</section>'));
-				});
-			}
+module.exports = function(dir) {
+	var re = /\S\w.md/,
+			slides = '';
+
+	readdir(dir).forEach(function(name, idx) {
+		var file = read(name, {
+			encoding: 'utf-8'
 		});
+		slides += '<section class="slide" data-slide="' + (idx + 1) + ':' + name + '">' + marked(file) + '</section>';
 	});
+
+	return slides;
 };
 
