@@ -12,11 +12,13 @@ body {
 
 
 .kn-sidebar {
-	background: #2e2b2c;
+	background: #0092bf; /*#2e2b2c; */
 	position:absolute;
-	top:0; left:0;
+	top:0; left:-400px;
 	width:400px;
 	height:100%;
+/*		-webkit-transition: -webkit-transform .4s,-webkit-filter 1.2s,opacity 1.2s;
+transition: transform .4s,filter 1.2s,opacity 1.2s;*/
 }
 
 
@@ -28,11 +30,22 @@ body {
 	height:100%;
 	width:100%;
 	min-height: 400px;
+/*	-webkit-transition: -webkit-transform .4s,-webkit-filter 1.2s,opacity 1.2s;
+transition: transform .4s,filter 1.2s,opacity 1.2s;*/
 }
 
-.kn-main.slide {
-	-webkit-transform:translate3d(400px, 0px, 0);
+/* replace with a container */
+/*
+.slide .kn-main {
+	opacity: .7;
+		-webkit-filter: brightness(75%) saturate(0%);
+	filter: brightness(65%) saturate(15%);
 }
+.slide .kn-main, .slide .kn-sidebar{
+	-webkit-transform: translateX(400px);
+	transform: translateX(400px);
+}*/
+
 
 .kn-footer {
 	color:#bdc3c7;

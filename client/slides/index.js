@@ -29,5 +29,5 @@ window.addEventListener('hashchange', function() {
 //crap
 
 document.querySelector('.icon-comment').addEventListener('click', function() {
-	document.querySelector('.kn-main').classList.toggle('slide');
+	document.body.classList.toggle('slide');
 });

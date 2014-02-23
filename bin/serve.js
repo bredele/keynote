@@ -17,3 +17,10 @@ module.exports = function(dirname, port) {
 	app.use(express.static(dirname));
 	app.listen(port || 8000);
 };
+
+app.get('/:page?', function(req, res, next) {
+	if(req.ip === '127.0.0.1') {
+		console.log('master');
+	}
+	next();
+});
