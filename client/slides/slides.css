@@ -1,0 +1,55 @@
+
+
+html {
+  font: 100%/1.5 "Open Sans", sans-serif;
+  font-weight: 400;
+}
+
+body {
+  margin: 0;
+}
+
+
+.kn-sidebar {
+	background: #2e2b2c;
+	position:absolute;
+	top:0; left:0;
+	width:400px;
+	height:100%;
+}
+
+
+.kn-main {
+	padding:20px;
+	background: white;
+	position:absolute;
+	top:0; left:0;
+	height:100%;
+	width:100%;
+	min-height: 400px;
+}
+
+.kn-main.slide {
+	-webkit-transform:translate3d(400px, 0px, 0);
+}
+
+.kn-footer {
+	position:absolute;
+	height:42px;
+	bottom:0;
+	left:0;
+	width:100%;
+}
+
+.kn-icon {
+	font-size: 1.3em;
+	padding:0 20px;
+	color:#ecf0f1;
+/*  font-size: 1.3em;
+	line-height: 42px;*/
+}
+
+.kn-icon:hover {
+	cursor:pointer;
+	color:#bdc3c7;
+}
