@@ -43,10 +43,29 @@ program.on('--help', function () {
 
 program.parse(process.argv);
 
-
 // path
 
 var output = program.output || './keynote';
+var path = resolve(program.path);
+
+//config
+var config = {
+	title: 'keynote'
+};
+
+var json = null;
+try {
+ json = require(path + '/keynote.json');
+} catch(e) {
+	//console.log(e);
+}
+
+
+for(var prop in json) {
+	config[prop] = json[prop];
+}
+
+config.keynote = walk(path);
 
 //create output directory
 
@@ -59,10 +78,7 @@ ncp(__dirname + '/basic', output, function(err) {
 	var file = read(output + '/index.html', {
 		encoding: 'utf-8'
 	});
-	write(output + '/index.html', supplant(file, {
-		title: 'keynote',
-		keynote: walk(resolve(program.path))
-	}), function() {
+	write(output + '/index.html', supplant(file, config), function() {
 		if(err) throw err;
 	});
 });
