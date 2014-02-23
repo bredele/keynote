@@ -1,0 +1,40 @@
+#!/usr/bin/env node
+
+var program = require('commander');
+
+
+/**
+ * Usage.
+ */
+
+program
+  .version(require('../package.json').version)
+  .usage('[<input>] [<output>]')
+  .option('-w, --watch', 'watch the input file for changes')
+  .option('-v, --verbose', 'log verbose output for debugging');
+
+
+/**
+ * Examples.
+ */
+
+program.on('--help', function () {
+  console.log('  Examples:');
+  console.log();
+  console.log('    # pass an input and output file:');
+  console.log('    $ myth input.css output.css');
+  console.log();
+  console.log('    # watch the input file for changes:');
+  console.log('    $ myth --watch input.css output.css');
+  console.log();
+  console.log('    # unix-style piping to stdin and stdout:');
+  console.log('    $ cat input.css | myth | grep background-color');
+  console.log();
+});
+
+
+/**
+ * Parse.
+ */
+
+program.parse(process.argv);
